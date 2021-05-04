@@ -8,7 +8,7 @@ export class CustomExceptionFilter implements ExceptionFilter {
         const response = ctx.getResponse<Response>();
 
         if (exception instanceof CustomError) {
-            response
+            return response
                 .status(exception.statusCode)
                 .json(exception.formatErrors());
         }
