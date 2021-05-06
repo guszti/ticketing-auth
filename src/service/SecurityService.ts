@@ -19,6 +19,6 @@ export class SecurityService {
     }
 
     public makeNewJWT(email: string, userId: string) {
-        return jwt.sign({ email, userId }, "dasecret");
+        return jwt.sign({ email, userId }, process.env.JWT_SECRET);
     }
 }
