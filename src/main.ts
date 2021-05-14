@@ -2,8 +2,8 @@ import { ValidationPipe } from "@nestjs/common";
 import { NestFactory } from "@nestjs/core";
 import { ValidationError } from "class-validator";
 import { AppModule } from "./app.module";
-import { CustomExceptionFilter } from "./helper/error/CustomExceptionFilter";
-import { CustomValidationError } from "./helper/error/CustomValidationError";
+import { CustomExceptionFilter } from "./helper/CustomExceptionFilter";
+import { CustomValidationError } from "@gticketing-common/common";
 import * as cookieParser from "cookie-parser";
 
 async function bootstrap() {

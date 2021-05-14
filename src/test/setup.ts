@@ -10,12 +10,14 @@ import { LogOutController } from "./../controller/LogOutController";
 import { SignUpController } from "./../controller/SignUpController";
 import { SecurityService } from "./../service/SecurityService";
 import * as cookieParser from "cookie-parser";
-import { CustomExceptionFilter } from "./../helper/error/CustomExceptionFilter";
+import { CustomExceptionFilter } from "../helper/CustomExceptionFilter";
 import { ValidationError } from "class-validator";
-import { CustomValidationError } from "./../helper/error/CustomValidationError";
-import { AuthMiddleware } from "./../middleware/AuthMiddleware";
+import {
+    CustomValidationError,
+    CurrentUserMiddleware,
+    AuthMiddleware,
+} from "@gticketing-common/common";
 import { NextFunction, Request } from "express";
-import { CurrentUserMiddleware } from "./../middleware/CurrentUserMiddleware";
 
 let mongoInstance = new MongoMemoryServer();
 export let testApp: INestApplication;

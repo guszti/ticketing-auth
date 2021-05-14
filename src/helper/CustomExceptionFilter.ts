@@ -1,6 +1,6 @@
 import { ArgumentsHost, ExceptionFilter } from "@nestjs/common";
 import { Response } from "express";
-import { CustomError } from "./CustomError";
+import { CustomError } from "@gticketing-common/common";
 
 export class CustomExceptionFilter implements ExceptionFilter {
     catch(exception, host: ArgumentsHost) {
@@ -13,6 +13,10 @@ export class CustomExceptionFilter implements ExceptionFilter {
                 .json(exception.formatErrors());
         }
 
-        throw exception;
+        return response.status(exception.statusCode).json({
+            statusCode: exception.statusCode,
+            customError: exception.message,
+            fieldErrors: [],
+        });
     }
 }

@@ -9,8 +9,10 @@ import { CurrentUserController } from "./controller/CurrentUserController";
 import { LoginController } from "./controller/LoginController";
 import { LogOutController } from "./controller/LogOutController";
 import { SignUpController } from "./controller/SignUpController";
-import { AuthMiddleware } from "./middleware/AuthMiddleware";
-import { CurrentUserMiddleware } from "./middleware/CurrentUserMiddleware";
+import {
+    AuthMiddleware,
+    CurrentUserMiddleware,
+} from "@gticketing-common/common";
 import { User, UserSchema } from "./model/User";
 import { SecurityService } from "./service/SecurityService";
 
@@ -42,6 +44,9 @@ export class AppModule implements NestModule {
 
         consumer
             .apply(CurrentUserMiddleware)
-            .forRoutes({ path: "api/auth/current-user", method: RequestMethod.ALL });
+            .forRoutes({
+                path: "api/auth/current-user",
+                method: RequestMethod.ALL,
+            });
     }
 }

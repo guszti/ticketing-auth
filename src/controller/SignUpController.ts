@@ -3,8 +3,7 @@ import { Body, Controller, Post } from "@nestjs/common";
 import { InjectModel } from "@nestjs/mongoose";
 import { UserCredentialsDto } from "./../dto/UserCredentialsDto";
 import { User, UserDocument } from "./../model/User";
-import { BadRequestError } from "./../helper/error/BadRequestError";
-import { DatabaseError } from "./../helper/error/DatabeseError";
+import { BadRequestError, DatabaseError } from "@gticketing-common/common";
 import { SecurityService } from "./../service/SecurityService";
 
 @Controller("/api/auth/sign-up")
